@@ -1,0 +1,28 @@
+{
+    "name": "rizwan3d/comment-system",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rizwan3d\\CommentSystem\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Muhammad Rizwan",
+            "email": "allgame45@hotmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "9.x-dev"
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "require-dev": {
+        "laravel/pint": "^1.5"
+    }
+}
