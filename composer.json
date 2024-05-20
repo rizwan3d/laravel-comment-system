@@ -2,6 +2,14 @@
     "name": "rizwan3d/comment-system",
     "type": "library",
     "license": "MIT",
+    "description": "A robust and flexible comment system for Laravel applications.",
+    "keywords": [
+        "laravel",
+        "comments",
+        "discussion",
+        "feedback"
+    ],
+    "homepage": "https://github.com/rizwan3d/laravel-comment-system",
     "autoload": {
         "psr-4": {
             "Rizwan3d\\CommentSystem\\": "src/"
@@ -14,8 +22,9 @@
         }
     ],
     "require": {
+        "php": "^7.4"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
@@ -24,6 +33,12 @@
     "require-dev": {
         "laravel/pint": "^1.5"
     },
+    "scripts": {
+        "post-root-package-install": [
+          "@php artisan vendor:publish --provider=\"Rizwan3d\\CommentSystem\\Providers\\CommentSystemServiceProvider\""
+        ],
+        "lint": "vendor/bin/pint --stop-on-failure src"
+      },
     "extra": {
         "laravel": {
             "providers": [
