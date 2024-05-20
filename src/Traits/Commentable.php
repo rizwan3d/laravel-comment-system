@@ -1,25 +1,24 @@
 <?php
 
-namespace Package\CommentSystem\Traits;
+namespace Rizwan3d\CommentSystem\Traits;
 
-use Package\CommentSystem\Models\Comment;
+use Rizwan3d\CommentSystem\Models\Comment;
 
 trait Commentable
 {
-    public function comments()
+    public function addComment(string $content)
     {
-        return $this->morphMany(Comment::class, 'commentable');
-    }
-
-    public function addComment(string $content, $parentId = null)
-    {
-        $comment = new Comment;
+        $comment = new Comment();
         $comment->commentable_id = $this->id;
         $comment->commentable_type = get_class($this);
         $comment->content = $content;
-        $comment->parent_id = $parentId;
         $comment->save();
 
         return $comment;
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->with('comments');
     }
 }

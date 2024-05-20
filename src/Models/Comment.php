@@ -1,10 +1,10 @@
 <?php
 
-namespace Package\CommentSystem\Models;
+namespace Rizwan3d\CommentSystem\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Package\CommentSystem\Traits\Commentable;
+use Rizwan3d\CommentSystem\Traits\Commentable;
 
 class Comment extends Model
 {
@@ -22,13 +22,8 @@ class Comment extends Model
         return $this->belongsTo(Comment::class);
     }
 
-    public function replies()
+    public function comments()
     {
-        return $this->hasMany(Comment::class, 'parent_id');
-    }
-
-    public function scopeWithReplies($query)
-    {
-        return $query->with('replies.replies'); // Recursive for N levels
+        return $this->hasMany(Comment::class, 'commentable_id')->where(['commentable_type' => get_class($this)]);
     }
 }

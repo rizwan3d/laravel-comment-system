@@ -27,7 +27,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rizwan3d\\CommentSystem\\Providers\\PackageServiceProvider"
+                "Rizwan3d\\CommentSystem\\Providers\\CommentSystemServiceProvider"
             ]
         }
     }
